@@ -5,11 +5,11 @@
       
       <div class="card-content">
         <h3>{{ recipe.name }}</h3>
-        <p>{{ recipe.description }}</p>
+        
         <span class="badge">Prêt en {{ recipe.time }} min</span>
       </div>
       
-      <button class="btn-details">Voir la recette</button>
+      <button class="btn-details" [routerLink]="['/recipes', recipe.id]">Voir la recette</button>
     </div>
   } @empty {
     <p>Chargement des délicieuses recettes en cours...</p>

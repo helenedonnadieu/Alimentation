@@ -22,9 +22,16 @@ export class Data {
             return {
               id: el.id,
               name: el.title,
-              //description: el.summary?.replace(/<[^>]*>/g, '').slice(0, 150) + '...', // Nettoyage du HTML
+              description: el.summary?.replace(/<[^>]*>/g, '').slice(0, 10000) + '...', // Nettoyage du HTML
               img: el.image,
-              time: el.readyInMinutes // Exemple de donnée supplémentaire
+              time: el.readyInMinutes,
+              servings: el.servings,
+              vegetarian: el.vegetarian,
+              vegan: el.vegan,
+              glutenFree: el.glutenFree,
+              dairyFree: el.dairyFree,
+              healthScore: el.healthScore,
+              price: (el.pricePerServing / 100).toFixed(2)
             };
           });
           

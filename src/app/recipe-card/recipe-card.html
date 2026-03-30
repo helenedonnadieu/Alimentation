@@ -1,1 +1,24 @@
-<p>recipe-card works!</p>
+@if (recipe) {
+  <div class="container padding-25">
+    <img [src]="recipe.img" [alt]="recipe.name" class="grows">
+    
+    <div class="card-body">
+      <h2 class="titre">{{ recipe.name }}</h2>
+      <p class="description">{{ recipe.description }}</p>
+
+      <p>⏱ {{ recipe.time }} min &nbsp;|&nbsp; 🍽 {{ recipe.servings }} portions</p>
+
+      <div class="badges">
+        <span class="badge-vegan" *ngIf="recipe.vegan">Vegan</span>
+        <span class="badge-vegetarian" *ngIf="recipe.vegetarian && !recipe.vegan">Végétarien</span>
+        <span class="badge-glutenfree" *ngIf="recipe.glutenFree">Sans gluten</span>
+        <span class="badge-dairyfree" *ngIf="recipe.dairyFree">Sans lactose</span>
+      </div>
+
+      <p>❤️ Score santé : {{ recipe.healthScore }}/100</p>
+      <p>💰 {{ recipe.price }}€ / portion</p>
+    </div>
+  </div>
+} @else {
+  <p>Recette introuvable...</p>
+}
