@@ -25,13 +25,22 @@ export class Data {
               description: el.summary?.replace(/<[^>]*>/g, '').slice(0, 10000) + '...', // Nettoyage du HTML
               img: el.image,
               time: el.readyInMinutes,
+              prepTime: el.preparationMinutes,
+              cookTime: el.cookingMinutes,
               servings: el.servings,
               vegetarian: el.vegetarian,
               vegan: el.vegan,
               glutenFree: el.glutenFree,
               dairyFree: el.dairyFree,
+              veryHealthy: el.veryHealthy,
+              veryPopular: el.veryPopular,
               healthScore: el.healthScore,
-              price: (el.pricePerServing / 100).toFixed(2)
+              price: (el.pricePerServing / 100).toFixed(2),
+              likes: el.aggregateLikes,
+              dishTypes: el.dishTypes,
+              diets: el.diets,
+              occasions: el.occasions,
+              sourceUrl: el.sourceUrl,
             };
           });
           

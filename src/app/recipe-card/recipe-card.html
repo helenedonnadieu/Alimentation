@@ -1,23 +1,58 @@
 @if (recipe) {
   <div class="container padding-25">
+
     <img [src]="recipe.img" [alt]="recipe.name" class="grows">
-    
-    <div class="card-body">
-      <h2 class="titre">{{ recipe.name }}</h2>
-      <p class="description">{{ recipe.description }}</p>
 
-      <p>⏱ {{ recipe.time }} min &nbsp;|&nbsp; 🍽 {{ recipe.servings }} portions</p>
+    <h2 class="titre">{{ recipe.name }}</h2>
+    <p class="description">{{ recipe.description }}</p>
 
-      <div class="badges">
-        <span class="badge-vegan" *ngIf="recipe.vegan">Vegan</span>
-        <span class="badge-vegetarian" *ngIf="recipe.vegetarian && !recipe.vegan">Végétarien</span>
-        <span class="badge-glutenfree" *ngIf="recipe.glutenFree">Sans gluten</span>
-        <span class="badge-dairyfree" *ngIf="recipe.dairyFree">Sans lactose</span>
-      </div>
-
-      <p>❤️ Score santé : {{ recipe.healthScore }}/100</p>
-      <p>💰 {{ recipe.price }}€ / portion</p>
+    <!-- Infos rapides -->
+    <div class="row padding-10">
+      <div class="col-3">⏱ Prêt en <strong>{{ recipe.time }} min</strong></div>
+      <div class="col-3" *ngIf="recipe.prepTime">🔪 Prépa : <strong>{{ recipe.prepTime }} min</strong></div>
+      <div class="col-3" *ngIf="recipe.cookTime">🍳 Cuisson : <strong>{{ recipe.cookTime }} min</strong></div>
+      <div class="col-3">🍽 <strong>{{ recipe.servings }}</strong> portions</div>
     </div>
+
+    <div class="row padding-10">
+      <div class="col-3">❤️ Score santé : <strong>{{ recipe.healthScore }}/100</strong></div>
+      <div class="col-3">👍 <strong>{{ recipe.likes }}</strong> personnes ont aimé</div>
+      <div class="col-3">💰 <strong>{{ recipe.price }}€</strong> / portion</div>
+    </div>
+
+    <!-- Badges régimes -->
+    <div class="badges padding-10">
+      <span class="badge-vegan" *ngIf="recipe.vegan">Vegan</span>
+      <span class="badge-vegetarian" *ngIf="recipe.vegetarian">Végétarien</span>
+      <span class="badge-glutenfree" *ngIf="recipe.glutenFree">Sans gluten</span>
+      <span class="badge-dairyfree" *ngIf="recipe.dairyFree">Sans lactose</span>
+      <span class="badge-vegan" *ngIf="recipe.veryHealthy">Très sain</span>
+      <span class="badge-vegetarian" *ngIf="recipe.veryPopular">Très populaire</span>
+    </div>
+
+    <!-- Types de plat -->
+    <div class="padding-10" *ngIf="recipe.dishTypes?.length > 0">
+      <p class="titre">Type de plat</p>
+      <div class="badges">
+        <span class="badge-glutenfree" *ngFor="let type of recipe.dishTypes">{{ type }}</span>
+      </div>
+    </div>
+
+    <!-- Occasions -->
+    <div class="padding-10" *ngIf="recipe.occasions?.length > 0">
+      <p class="titre">Occasions</p>
+      <div class="badges">
+        <span class="badge-dairyfree" *ngFor="let occasion of recipe.occasions">{{ occasion }}</span>
+      </div>
+    </div>
+
+    <!-- Lien source -->
+    <div class="padding-10">
+      <a [href]="recipe.sourceUrl" target="_blank" class="btn-details">
+        Voir la recette originale
+      </a>
+    </div>
+
   </div>
 } @else {
   <p>Recette introuvable...</p>
