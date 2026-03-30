@@ -6,8 +6,8 @@ import { inject, Injectable } from '@angular/core';
 })
 export class Data {
   private httpClient = inject(HttpClient);
-  private apiKey = '8c4b46ef1742496783a6f7dde1fb54dc';
-  
+  //private apiKey = '8c4b46ef1742496783a6f7dde1fb54dc';
+  private apiKey = '0f0185dbc36b48638ef048d3cb6fba64';
   // Tableau pour stocker vos recettes
   public recipes: Array<any> = [];
 

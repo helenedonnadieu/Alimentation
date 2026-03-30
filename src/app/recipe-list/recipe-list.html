@@ -1,17 +1,70 @@
-<div class="recipe-container">
-  @for (recipe of dataService.recipes; track recipe.id) {
-    <div class="recipe-card">
-      <img [src]="recipe.img" [alt]="recipe.name">
-      
-      <div class="card-content">
-        <h3>{{ recipe.name }}</h3>
-        
-        <span class="badge">Prêt en {{ recipe.time }} min</span>
+<div class="container padding-25">
+
+  <!-- Recherche -->
+  <div class="search-bar padding-10">
+    <input type="text" [(ngModel)]="searchQuery"
+      placeholder="Rechercher une recette..." class="search-input" />
+  </div>
+
+  <div class="row">
+
+    <!-- Filtres -->
+    <div class="col-3">
+      <div class="filter-panel">
+        <div class="filter-header">
+          <p class="titre">Filtres</p>
+          <button class="btn-reset" (click)="resetFilters()">Réinitialiser</button>
+        </div>
+
+        <div class="filter-section">
+          <p class="filter-title">Régime</p>
+          <label><input type="checkbox" [(ngModel)]="filterVegan"> Vegan</label>
+          <label><input type="checkbox" [(ngModel)]="filterVegetarian"> Végétarien</label>
+          <label><input type="checkbox" [(ngModel)]="filterGlutenFree"> Sans gluten</label>
+          <label><input type="checkbox" [(ngModel)]="filterDairyFree"> Sans lactose</label>
+        </div>
+
+        <div class="filter-section">
+          <p class="filter-title">Temps</p>
+          <label><input type="radio" [(ngModel)]="filterTime" value="all"> Tous</label>
+          <label><input type="radio" [(ngModel)]="filterTime" value="-30"> Moins de 30 min</label>
+          <label><input type="radio" [(ngModel)]="filterTime" value="30-60"> 30 à 60 min</label>
+          <label><input type="radio" [(ngModel)]="filterTime" value="+60"> Plus d'1h</label>
+        </div>
+
+        <div class="filter-section">
+          <p class="filter-title">Qualité</p>
+          <label><input type="checkbox" [(ngModel)]="filterHealthy"> Score santé > 50</label>
+          <label><input type="checkbox" [(ngModel)]="filterPopular"> Très populaire</label>
+          <label><input type="checkbox" [(ngModel)]="filterCheap"> Petit budget</label>
+        </div>
+
+        <div class="filter-section">
+          <p class="filter-title">Ingrédient</p>
+          <input type="text" [(ngModel)]="ingredientQuery"
+            placeholder="ex: chicken..." class="search-input" />
+        </div>
       </div>
-      
-      <button class="btn-details" [routerLink]="['/recipes', recipe.id]">Voir la recette</button>
     </div>
-  } @empty {
-    <p>Chargement des délicieuses recettes en cours...</p>
-  }
+
+    <!-- Recettes -->
+    <div class="col-9">
+      <p class="text-muted mb-3">{{ filteredRecipes.length }} recette(s) trouvée(s)</p>
+      <div class="recipe-container">
+        @for (recipe of filteredRecipes; track recipe.id) {
+          <div class="recipe-card">
+            <img [src]="recipe.img" [alt]="recipe.name">
+            <div class="card-content">
+              <h3>{{ recipe.name }}</h3>
+              <span class="badge">Prêt en {{ recipe.time }} min</span>
+            </div>
+            <button class="btn-details" [routerLink]="['/recipes', recipe.id]">Voir la recette</button>
+          </div>
+        } @empty {
+          <p>Aucune recette ne correspond aux filtres.</p>
+        }
+      </div>
+    </div>
+
+  </div>
 </div>

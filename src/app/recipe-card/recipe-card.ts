@@ -1,9 +1,9 @@
 import { Component,OnInit  } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Data } from '../data';
 @Component({
   selector: 'app-recipe-card',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './recipe-card.html',
   styleUrl: './recipe-card.css',
 })
