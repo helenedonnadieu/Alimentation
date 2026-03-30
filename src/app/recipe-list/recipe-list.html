@@ -1,1 +1,17 @@
-<p>recipe-list works!</p>
+<div class="recipe-container">
+  @for (recipe of dataService.recipes; track recipe.id) {
+    <div class="recipe-card">
+      <img [src]="recipe.img" [alt]="recipe.name">
+      
+      <div class="card-content">
+        <h3>{{ recipe.name }}</h3>
+        <p>{{ recipe.description }}</p>
+        <span class="badge">Prêt en {{ recipe.time }} min</span>
+      </div>
+      
+      <button class="btn-details">Voir la recette</button>
+    </div>
+  } @empty {
+    <p>Chargement des délicieuses recettes en cours...</p>
+  }
+</div>
