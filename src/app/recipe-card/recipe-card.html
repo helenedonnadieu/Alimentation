@@ -54,6 +54,12 @@
     </div>
 
     <div class="padding-10">
+      <button class="btn-details" (click)="toggleFavorite(recipe.id)">
+        {{ isFavorite(recipe.id) ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
+      </button>
+    </div>
+
+    <div class="padding-10">
     <button class="btn-details" routerLink="/details">
         Voir le détail de la recette
     </button>

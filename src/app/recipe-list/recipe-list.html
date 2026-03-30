@@ -49,7 +49,9 @@
 
     <!-- Recettes -->
     <div class="col-9">
-      <p class="text-muted mb-3">{{ filteredRecipes.length }} recette(s) trouvée(s)</p>
+      <p class="text-muted mb-3">
+        {{ filteredRecipes.length }} recette(s) trouvée(s)
+      </p>
       <div class="recipe-container">
         @for (recipe of filteredRecipes; track recipe.id) {
           <div class="recipe-card">
@@ -58,10 +60,15 @@
               <h3>{{ recipe.name }}</h3>
               <span class="badge">Prêt en {{ recipe.time }} min</span>
             </div>
+            <button class="btn-favorite" (click)="toggleFavorite(recipe.id)">
+              {{ isFavorite(recipe.id) ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
+            </button>
             <button class="btn-details" [routerLink]="['/recipes', recipe.id]">Voir la recette</button>
           </div>
         } @empty {
-          <p>Aucune recette ne correspond aux filtres.</p>
+          <p>
+            {{ favoritesOnly ? 'Aucune recette favorite pour le moment.' : 'Aucune recette ne correspond aux filtres.' }}
+          </p>
         }
       </div>
     </div>

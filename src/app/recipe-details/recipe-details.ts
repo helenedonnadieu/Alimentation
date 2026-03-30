@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
 import { Data } from '../data';
 @Component({
   selector: 'app-recipe-details',
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule],
   templateUrl: './recipe-details.html',
   styleUrl: './recipe-details.css',
 })

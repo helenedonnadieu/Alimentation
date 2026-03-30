@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Data } from '../data';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router'; 
+import { ActivatedRoute, RouterLink } from '@angular/router'; 
 
 @Component({
   selector: 'app-recipe-list',
@@ -15,6 +15,7 @@ import { RouterLink } from '@angular/router';
 //}
 
 export class RecipeList {
+  favoritesOnly = false;
   searchQuery = '';
   filterVegetarian = false;
   filterVegan = false;
@@ -26,10 +27,20 @@ export class RecipeList {
   filterPopular = false;
   ingredientQuery = '';
 
-  constructor(public dataService: Data) {}
+  constructor(public dataService: Data, private route: ActivatedRoute) {
+    this.route.data.subscribe((data) => {
+      this.favoritesOnly = !!data['favoritesOnly'];
+    });
+  }
+
+  get recipesSource() {
+    return this.favoritesOnly
+      ? this.dataService.favoriteRecipes
+      : this.dataService.recipes;
+  }
 
   get filteredRecipes() {
-    return this.dataService.recipes.filter(r => {
+    return this.recipesSource.filter(r => {
       if (this.searchQuery && !r.name.toLowerCase().includes(this.searchQuery.toLowerCase())) return false;
       if (this.filterVegan && !r.vegan) return false;
       if (this.filterVegetarian && !r.vegetarian) return false;
@@ -49,6 +60,14 @@ export class RecipeList {
       }
       return true;
     });
+  }
+
+  isFavorite(recipeId: number): boolean {
+    return this.dataService.isFavorite(recipeId);
+  }
+
+  toggleFavorite(recipeId: number): void {
+    this.dataService.toggleFavorite(recipeId);
   }
 
   resetFilters() {

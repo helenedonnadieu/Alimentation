@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -8,8 +8,55 @@ export class Data {
   private httpClient = inject(HttpClient);
   //private apiKey = '8c4b46ef1742496783a6f7dde1fb54dc';
   private apiKey = '0f0185dbc36b48638ef048d3cb6fba64';
+  private favoritesStorageKey = 'favoriteRecipeIds';
+  private favoriteIds = signal<number[]>(this.loadFavoriteIds());
   // Tableau pour stocker vos recettes
   public recipes: Array<any> = [];
+
+  get favoriteRecipes(): Array<any> {
+    const ids = new Set(this.favoriteIds());
+    return this.recipes.filter((recipe) => ids.has(recipe.id));
+  }
+
+  isFavorite(recipeId: number): boolean {
+    return this.favoriteIds().includes(recipeId);
+  }
+
+  toggleFavorite(recipeId: number): void {
+    const ids = this.favoriteIds();
+    const isAlreadyFavorite = ids.includes(recipeId);
+
+    const nextIds = isAlreadyFavorite
+      ? ids.filter((id) => id !== recipeId)
+      : [...ids, recipeId];
+
+    this.favoriteIds.set(nextIds);
+    this.saveFavoriteIds(nextIds);
+  }
+
+  private loadFavoriteIds(): number[] {
+    try {
+      const stored = localStorage.getItem(this.favoritesStorageKey);
+      if (!stored) {
+        return [];
+      }
+
+      const parsed = JSON.parse(stored);
+      return Array.isArray(parsed)
+        ? parsed.filter((id) => typeof id === 'number')
+        : [];
+    } catch {
+      return [];
+    }
+  }
+
+  private saveFavoriteIds(ids: number[]): void {
+    try {
+      localStorage.setItem(this.favoritesStorageKey, JSON.stringify(ids));
+    } catch {
+      // Ignore localStorage errors to keep the app usable.
+    }
+  }
 
   constructor() {
     // Appel vers Spoonacular (Exemple : 10 recettes complexes)

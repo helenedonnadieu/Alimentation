@@ -10,6 +10,8 @@ export const routes: Routes = [
     component: Body, 
     children: [
       { path: '', component: RecipeList },
+      { path: 'recipes', component: RecipeList },
+      { path: 'favorites', component: RecipeList, data: { favoritesOnly: true } },
 
       { path: 'recipes/:id', component: RecipeCard }, 
       { path: 'details', component: RecipeDetails },

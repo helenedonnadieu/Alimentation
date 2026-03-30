@@ -165,3 +165,22 @@
 .btn-details:active {
   transform: scale(0.98);
 }
+
+.btn-favorite {
+  margin: 0 14px 8px;
+  padding: 8px;
+  background: white;
+  color: rgb(242, 109, 60);
+  border: 1px solid rgb(242, 109, 60);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  width: calc(100% - 28px);
+  transition: background .2s, color .2s;
+}
+
+.btn-favorite:hover {
+  background: rgb(242, 109, 60);
+  color: white;
+}
