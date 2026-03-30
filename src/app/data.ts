@@ -7,7 +7,7 @@ import { inject, Injectable, signal } from '@angular/core';
 export class Data {
   private httpClient = inject(HttpClient);
   //private apiKey = '8c4b46ef1742496783a6f7dde1fb54dc';
-  private apiKey = '0f0185dbc36b48638ef048d3cb6fba64';
+  private apiKey = '6891b90d059f49b8b18c3d3800b9cba7';
   private favoritesStorageKey = 'favoriteRecipeIds';
   private favoriteIds = signal<number[]>(this.loadFavoriteIds());
   // Tableau pour stocker vos recettes
@@ -66,6 +66,9 @@ export class Data {
         next: (value: any) => {
           // Spoonacular renvoie les résultats dans un tableau nommé 'results'
           const newArray = value.results.map((el: any) => {
+            const instructionSteps =
+              el.analyzedInstructions?.[0]?.steps?.map((step: any) => step.step) ?? [];
+
             return {
               id: el.id,
               name: el.title,
@@ -87,6 +90,8 @@ export class Data {
               dishTypes: el.dishTypes,
               diets: el.diets,
               occasions: el.occasions,
+              ingredients: el.extendedIngredients ?? [],
+              instructionSteps,
               sourceUrl: el.sourceUrl,
             };
           });

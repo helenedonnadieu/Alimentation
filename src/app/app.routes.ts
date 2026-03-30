@@ -14,7 +14,7 @@ export const routes: Routes = [
       { path: 'favorites', component: RecipeList, data: { favoritesOnly: true } },
 
       { path: 'recipes/:id', component: RecipeCard }, 
-      { path: 'details', component: RecipeDetails },
+      { path: 'details/:id', component: RecipeDetails },
     ]
   }
 ];

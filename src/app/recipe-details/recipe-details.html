@@ -1,69 +1,43 @@
 @if (recipe) {
   <div class="container padding-25">
 
-    <img [src]="recipe.img" [alt]="recipe.name">
-
-    <h2 class="titre">{{ recipe.name }}</h2>
-    <p class="description">{{ recipe.description }}</p>
-
-    <!-- Infos rapides -->
-    <div class="row padding-10">
-      <div class="col-3">⏱ Prêt en <strong>{{ recipe.time }} min</strong></div>
-      <div class="col-3" *ngIf="recipe.prepTime">🔪 Prépa : <strong>{{ recipe.prepTime }} min</strong></div>
-      <div class="col-3" *ngIf="recipe.cookTime">🍳 Cuisson : <strong>{{ recipe.cookTime }} min</strong></div>
-      <div class="col-3">🍽 <strong>{{ recipe.servings }}</strong> portions</div>
-    </div>
-
-    <div class="row padding-10">
-      <div class="col-3">❤️ Score santé : <strong>{{ recipe.healthScore }}/100</strong></div>
-      <div class="col-3">👍 <strong>{{ recipe.likes }}</strong> personnes ont aimé</div>
-      <div class="col-3">💰 <strong>{{ recipe.price }}€</strong> / portion</div>
-    </div>
-
-    <!-- Badges -->
-    <div class="badges padding-10">
-      <span class="badge-vegan" *ngIf="recipe.vegan">Vegan</span>
-      <span class="badge-vegetarian" *ngIf="recipe.vegetarian">Végétarien</span>
-      <span class="badge-glutenfree" *ngIf="recipe.glutenFree">Sans gluten</span>
-      <span class="badge-dairyfree" *ngIf="recipe.dairyFree">Sans lactose</span>
-      <span class="badge-vegan" *ngIf="recipe.veryHealthy">Très sain</span>
-      <span class="badge-vegetarian" *ngIf="recipe.veryPopular">Très populaire</span>
-    </div>
-
-    <!-- Ingrédients -->
-    <div class="padding-10" *ngIf="recipe.ingredients?.length > 0">
-      <p class="titre">Ingrédients</p>
-      <ul>
-        <li *ngFor="let ing of recipe.ingredients">
-          {{ ing.amount }} {{ ing.unit }} — {{ ing.name }}
-        </li>
-      </ul>
-    </div>
-
-    <!-- Types de plat -->
-    <div class="padding-10" *ngIf="recipe.dishTypes?.length > 0">
-      <p class="titre">Type de plat</p>
-      <div class="badges">
-        <span class="badge-glutenfree" *ngFor="let type of recipe.dishTypes">{{ type }}</span>
+    <div class="recipe-hero">
+      <img [src]="recipe.img" [alt]="recipe.name">
+      <div class="recipe-hero-info">
+        <h2 class="titre">{{ recipe.name }}</h2>
       </div>
     </div>
 
-    <!-- Occasions -->
-    <div class="padding-10" *ngIf="recipe.occasions?.length > 0">
-      <p class="titre">Occasions</p>
-      <div class="badges">
-        <span class="badge-dairyfree" *ngFor="let occasion of recipe.occasions">{{ occasion }}</span>
-      </div>
-    </div>
+    <div class="row padding-25">
 
-    <!-- Lien source -->
-    <div class="padding-10">
-      <a [href]="recipe.sourceUrl" target="_blank" class="btn-details">
-        Voir la recette originale
-      </a>
+      <div class="col-4">
+        <div class="section-card">
+          <p class="titre">Ingrédients</p>
+          <p class="text-muted">Pour {{ recipe.servings }} portions</p>
+          <ul class="ingredient-list">
+            <li *ngFor="let ing of ingredients">
+              <span class="ing-amount">{{ ing.amount | number:'1.0-1' }} {{ ing.unit }}</span>
+              <span class="ing-name">{{ ing.name }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-8">
+        <div class="section-card">
+          <p class="titre">Étapes de préparation</p>
+          <div class="step" *ngFor="let step of steps">
+            <div class="step-number">{{ step.number }}</div>
+            <p class="step-text">{{ step.step }}</p>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </div>
 } @else {
-  <p>Recette introuvable...</p>
+  <div class="container padding-25 text-center">
+    <p>Chargement de la recette...</p>
+  </div>
 }
