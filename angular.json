@@ -19,6 +19,7 @@
           "options": {
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
+            "polyfills": ["zone.js"],
             "assets": [
               {
                 "glob": "**/*",
@@ -42,7 +43,7 @@
                   "maximumWarning": "4kB",
                   "maximumError": "8kB"
                 }
-                "polyfills": ["zone.js"],
+                
               ],
               "outputHashing": "all"
             },
