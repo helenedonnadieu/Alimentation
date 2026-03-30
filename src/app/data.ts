@@ -22,7 +22,7 @@ export class Data {
             return {
               id: el.id,
               name: el.title,
-              description: el.summary?.replace(/<[^>]*>/g, '').slice(0, 150) + '...', // Nettoyage du HTML
+              //description: el.summary?.replace(/<[^>]*>/g, '').slice(0, 150) + '...', // Nettoyage du HTML
               img: el.image,
               time: el.readyInMinutes // Exemple de donnée supplémentaire
             };
