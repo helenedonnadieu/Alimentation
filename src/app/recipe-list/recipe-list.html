@@ -63,7 +63,7 @@
             <button class="btn-favorite" (click)="toggleFavorite(recipe.id)">
               {{ isFavorite(recipe.id) ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
             </button>
-            <button class="btn-details" [routerLink]="['/recipes', recipe.id]">Voir la recette</button>
+            <button class="btn-details" [routerLink]="['/recipes', recipe.id]">Voir la description</button>
           </div>
         } @empty {
           <p>
