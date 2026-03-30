@@ -61,7 +61,7 @@ export class Data {
   constructor() {
     // Appel vers Spoonacular (Exemple : 10 recettes complexes)
     this.httpClient
-      .get<any>(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${this.apiKey}&number=10&addRecipeInformation=true`)
+      .get<any>(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${this.apiKey}&number=60&addRecipeInformation=true`)
       .subscribe({
         next: (value: any) => {
           // Spoonacular renvoie les résultats dans un tableau nommé 'results'
