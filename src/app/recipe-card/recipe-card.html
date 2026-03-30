@@ -6,18 +6,24 @@
     <h2 class="titre">{{ recipe.name }}</h2>
     <p class="description">{{ recipe.description }}</p>
 
-    <!-- Infos rapides -->
-    <div class="row padding-10">
-      <div class="col-3">⏱ Prêt en <strong>{{ recipe.time }} min</strong></div>
-      <div class="col-3" *ngIf="recipe.prepTime">🔪 Prépa : <strong>{{ recipe.prepTime }} min</strong></div>
-      <div class="col-3" *ngIf="recipe.cookTime">🍳 Cuisson : <strong>{{ recipe.cookTime }} min</strong></div>
-      <div class="col-3">🍽 <strong>{{ recipe.servings }}</strong> portions</div>
-    </div>
+    
 
-    <div class="row padding-10">
-      <div class="col-3">❤️ Score santé : <strong>{{ recipe.healthScore }}/100</strong></div>
-      <div class="col-3">👍 <strong>{{ recipe.likes }}</strong> personnes ont aimé</div>
-      <div class="col-3">💰 <strong>{{ recipe.price }}€</strong> / portion</div>
+    <div class="row padding-10 stats-row">
+      <div class="col-3 stat-card">
+        <span class="stat-icon">❤️</span>
+        <span class="stat-label">Score santé</span>
+        <strong>{{ recipe.healthScore }}/100</strong>
+      </div>
+      <div class="col-3 stat-card">
+        <span class="stat-icon">👍</span>
+        <span class="stat-label">Aimé par</span>
+        <strong>{{ recipe.likes }}</strong>
+      </div>
+      <div class="col-3 stat-card">
+        <span class="stat-icon">💰</span>
+        <span class="stat-label">Prix / portion</span>
+        <strong>{{ recipe.price }}€</strong>
+      </div>
     </div>
 
     <!-- Badges régimes -->
@@ -54,16 +60,10 @@
     </div>
 
     <div class="padding-10">
-      <button class="btn-details" (click)="toggleFavorite(recipe.id)">
-        {{ isFavorite(recipe.id) ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
+      <button class="btn-details" [routerLink]="['/details', recipe.id]">
+        Voir le détail de la recette
       </button>
     </div>
-
-    <div class="padding-10">
-    <button class="btn-details" [routerLink]="['/details', recipe.id]">
-        Voir le détail de la recette
-    </button>
-    </div>    
 
   </div>
 } @else {
