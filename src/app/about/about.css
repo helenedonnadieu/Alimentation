@@ -5,15 +5,15 @@
 }
 
 .about-hero {
-  background: linear-gradient(135deg, #fff6ef 0%, #ffe8da 100%);
-  border: 1px solid #f1d7c6;
+  background: linear-gradient(135deg, #fdfaf8 0%, #f5f2f0 100%);
+  border: 1px solid #faf5f2;
   border-radius: 16px;
   padding: 22px;
 }
 
 .about-hero .title {
   margin: 0 0 8px;
-  color: rgb(242, 109, 60);
+  color: rgb(31, 12, 12);
   font-size: 28px;
   font-weight: 700;
 }
@@ -42,13 +42,16 @@
 
 .profile-photo {
   width: 230px;
+  height: 230px;
   max-width: 100%;
-  height: auto;
   border-radius: 14px;
   border: 1px solid #f0dfd1;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
 }
 
-.profile-card h3 {
+.profile-card h3, .profile-card h4 {
   margin: 14px 0 8px;
   color: #6e2e14;
   font-size: 20px;

@@ -13,7 +13,9 @@ export class RecipeDetails implements OnInit {
   recipe: any;
   ingredients: any[] = [];
   steps: any[] = [];
-  private apiKey = '6891b90d059f49b8b18c3d3800b9cba7';
+  //private apiKey = '6891b90d059f49b8b18c3d3800b9cba7';
+    private apiKey = '8c4b46ef1742496783a6f7dde1fb54dc';
+
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
