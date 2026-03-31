@@ -64,8 +64,13 @@
               <h3>{{ recipe.name }}</h3>
               <span class="badge">Prêt en {{ recipe.time }} min</span>
             </div>
-            <button class="btn-favorite" (click)="toggleFavorite(recipe.id)">
-              {{ isFavorite(recipe.id) ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
+            <button
+              class="btn-favorite"
+              [class.active]="isFavorite(recipe.id)"
+              (click)="toggleFavorite(recipe.id)"
+              [attr.aria-label]="isFavorite(recipe.id) ? 'Retirer des favoris' : 'Ajouter aux favoris'"
+            >
+              {{ isFavorite(recipe.id) ? '♥' : '♡' }}
             </button>
             <button class="btn-details" [routerLink]="['/recipes', recipe.id]">Voir la description</button>
           </div>

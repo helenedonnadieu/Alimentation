@@ -8,21 +8,20 @@
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  font-size: 22px;
-  font-weight: bold;
-  gap: 10px;
-}
-
-.logo {
-  height: 60px;
+  display: inline-block;
+  padding: 8px;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-height: 110px;
+  max-width: 140px;
 }
 
 .logo:hover {
   transform: scale(1.05);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
 }
 
 .logo img {

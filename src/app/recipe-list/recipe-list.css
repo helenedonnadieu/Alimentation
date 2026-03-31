@@ -167,20 +167,30 @@
 }
 
 .btn-favorite {
-  margin: 0 14px 8px;
-  padding: 8px;
-  background: white;
-  color: rgba(20, 171, 43, 0.519);
-  border: 1px solid rgba(20, 171, 43, 0.519);
-  border-radius: 10px;
+  margin: 0 14px 12px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #c45d5d;
+  border: 1px solid #d8b19d;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
-  width: calc(100% - 28px);
-  transition: background .2s, color .2s;
+  font-size: 20px;
+  line-height: 1;
+  transition: transform .2s ease, background .2s, color .2s, border-color .2s;
 }
 
 .btn-favorite:hover {
-  background: rgba(20, 171, 43, 0.519);
-  color: white;
+  transform: scale(1.05);
+  background: #f6e8e5;
+}
+
+.btn-favorite.active {
+  background: #d7b59d;
+  color: #611f1f;
+  border-color: #c49a86;
 }
