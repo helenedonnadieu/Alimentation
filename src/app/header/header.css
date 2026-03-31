@@ -30,6 +30,37 @@
   object-fit: contain;
 }
 
+header .panel .row > .col-8 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .panel .row > .col-8 .row {
+  justify-content: center;
+  align-items: center;
+  gap: 34px;
+}
+
+header .panel .row > .col-8 .row > .col-2 {
+  flex: 0 0 auto;
+  min-width: 120px;
+}
+
+header .panel .row > .col-8 a {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+header .panel .row > .col-8 a:hover {
+  color: #f4f4f4;
+}
+
 .nav-links {
   display: flex;
   gap: 20px;
