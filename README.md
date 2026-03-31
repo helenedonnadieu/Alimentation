@@ -16,7 +16,7 @@ Navigation with Angular Router.
 
 Responsive design powered by Bootstrap 5.
 
-|
+
 | recipe-list | recipe-card | recipe-detail |
 |------------|--------|-----------|
 | ![](screenshots/recipe-list.png) | ![](screenshots/recipe-card.png) | ![](screenshots/recipe-detail.png) | 
