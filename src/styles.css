@@ -58,12 +58,12 @@ img.flip:hover {
 }
 
 .panel {
-    background-color: rgb(242, 109, 60);
+    background-color: rgba(75, 242, 60, 0.914);
     color: white;
 }
 
 .titre {
-    color: rgb(242, 109, 60);
+    color: rgba(242, 154, 60, 0.519);
     font-size: large;
     font-weight: bold;
 }
