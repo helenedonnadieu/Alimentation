@@ -14,10 +14,14 @@ Recipe Details: full list of ingredients and preparation steps.
 Navigation with Angular Router.
 
 Responsive design powered by Bootstrap 5.
+<<<<<<< HEAD
 
 | Recipe Card | Recipe Details |
 | :---: | :---: |
 | <img src="Screenshoots/recipe-card.png" alt="Individual Recipe Card" width="300px"> | <img src="Screenshoots/recipe-detail.png" alt="Full Recipe Details View" width="300px"> |
+=======
+|
+>>>>>>> b1564d6053e3edc5e94a2e4a8033bcd1aec3de54
 
 
 **Project structure**
