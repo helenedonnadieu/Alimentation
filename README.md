@@ -12,7 +12,7 @@ Responsive design powered by Bootstrap 5.
 | Recipe Card | Recipe Details |
 | :---: | :---: |
 | <img src="Screenshots/recipe-card.png" alt="Individual Recipe Card" width="300px"> | <img src="Screenshots/recipe-detail.png" alt="Full Recipe Details View" width="300px"> |
-| *Displays key info at a glance.* | *Detailed ingredients and steps.* |
+
 
 **Project structure**
 src/
