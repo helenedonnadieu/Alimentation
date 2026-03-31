@@ -2,11 +2,17 @@
 An Angular cooking recipe application powered by the Spoonacular API.
 
 **Features**
+
 Real-time recipe search using Observables (valueChanges).
+
 Advanced filters: diet, prep time, budget, popularity, and ingredients.
+
 Recipe Cards: image, badges, health score, and price per serving.
+
 Recipe Details: full list of ingredients and preparation steps.
+
 Navigation with Angular Router.
+
 Responsive design powered by Bootstrap 5.
 
 | Recipe Card | Recipe Details |
@@ -15,6 +21,7 @@ Responsive design powered by Bootstrap 5.
 
 
 **Project structure**
+
 src/
 ├── app/
 │   ├── header/              # Navigation bar
