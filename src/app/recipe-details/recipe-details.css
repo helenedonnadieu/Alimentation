@@ -15,6 +15,18 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  align-items: flex-start;
+}
+
+.recipe-hero-info .titre,
+.section-card .titre {
+  color: #111111;
+}
+
+.recipe-hero-info .titre {
+  font-size: 2.5rem;
+  margin-left: 10px;
+  line-height: 1.05;
 }
 
 .section-card {
@@ -44,7 +56,7 @@
 
 .ing-amount {
   font-weight: 600;
-  color: #9a3c18;
+  color: rgba(20, 171, 43, 0.519);
 }
 
 .ing-name {
@@ -63,7 +75,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #f26d3c;
+  background: rgba(20, 171, 43, 0.519);
   color: white;
   display: flex;
   align-items: center;
