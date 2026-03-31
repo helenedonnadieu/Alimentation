@@ -1,4 +1,5 @@
 **My Recipes — Angular App**
+
 An Angular cooking recipe application powered by the Spoonacular API.
 
 **Features**
@@ -38,12 +39,15 @@ src/
 └── index.html
 ``` 
 **Installation**
-# Clone the project
+
+Clone the project:
 git clone https://github.com/YOUR-USERNAME/alimentation.git
 cd alimentation
-# Install dependencies
+
+Install dependencies :
 npm install
-# Start the development server
+
+Start the development server
 ng serve
 
 Open http://localhost:4200 in your browser.
@@ -52,5 +56,7 @@ Open http://localhost:4200 in your browser.
 Documentation: https://spoonacular.com/food-api
 
 **Authors**
+
 Aminata Yade
+
 Hélène Donnadieu
