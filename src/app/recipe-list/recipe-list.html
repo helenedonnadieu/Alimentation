@@ -2,8 +2,12 @@
 
   <!-- Recherche -->
   <div class="search-bar padding-10">
-    <input type="text" [(ngModel)]="searchQuery"
-      placeholder="Rechercher une recette..." class="search-input" />
+    <input
+      type="text"
+      [formControl]="searchControl"
+      placeholder="Rechercher une recette..."
+      class="search-input"
+    />
   </div>
 
   <div class="row">

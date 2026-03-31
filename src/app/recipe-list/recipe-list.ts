@@ -1,12 +1,12 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormControl, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Data } from '../data';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router'; 
 
 @Component({
   selector: 'app-recipe-list',
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterLink],
   templateUrl: './recipe-list.html',
   styleUrl: './recipe-list.css',
 })
@@ -16,7 +16,8 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 
 export class RecipeList {
   favoritesOnly = false;
-  searchQuery = '';
+  searchControl = new FormControl('');
+  searchQuery$ = this.searchControl.valueChanges;
   filterVegetarian = false;
   filterVegan = false;
   filterGlutenFree = false;
@@ -40,8 +41,9 @@ export class RecipeList {
   }
 
   get filteredRecipes() {
+    const query = (this.searchControl.value ?? '').toString().toLowerCase();
     return this.recipesSource.filter(r => {
-      if (this.searchQuery && !r.name.toLowerCase().includes(this.searchQuery.toLowerCase())) return false;
+      if (query && !r.name.toLowerCase().includes(query)) return false;
       if (this.filterVegan && !r.vegan) return false;
       if (this.filterVegetarian && !r.vegetarian) return false;
       if (this.filterGlutenFree && !r.glutenFree) return false;
@@ -71,7 +73,7 @@ export class RecipeList {
   }
 
   resetFilters() {
-    this.searchQuery = '';
+    this.searchControl.setValue('');
     this.filterVegetarian = false;
     this.filterVegan = false;
     this.filterGlutenFree = false;
