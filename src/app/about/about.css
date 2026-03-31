@@ -51,6 +51,10 @@
   margin: 0 auto;
 }
 
+.profile-photo--hd {
+  object-position: center top;
+}
+
 .profile-card h3, .profile-card h4 {
   margin: 14px 0 8px;
   color: #6e2e14;
