@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="768" viewBox="0 0 768 768">
+  <rect width="768" height="768" fill="#efe7e3"/>
+  <circle cx="384" cy="280" r="150" fill="#ebbf92"/>
+  <rect x="214" y="430" width="340" height="220" rx="70" fill="#3d3c4f"/>
+  <text x="384" y="705" font-family="Arial" font-size="34" text-anchor="middle" fill="#5f2f1f">Photo 2 - equipe</text>
+</svg>
