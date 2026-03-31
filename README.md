@@ -41,7 +41,7 @@ src/
 **Installation**
 
 Clone the project:
-git clone https://github.com/YOUR-USERNAME/alimentation.git
+git clone https://github.com/helenedonnadieu/alimentation.git
 cd alimentation
 
 Install dependencies :
