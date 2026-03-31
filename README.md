@@ -47,7 +47,7 @@ cd alimentation
 Install dependencies :
 npm install
 
-Start the development server
+Start the development server :
 ng serve
 
 Open http://localhost:4200 in your browser.
