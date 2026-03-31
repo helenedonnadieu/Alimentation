@@ -54,11 +54,35 @@ export class RecipeList {
       if (this.filterHealthy && r.healthScore < 50) return false;
       if (this.filterCheap && r.price > 3) return false;
       if (this.filterPopular && !r.veryPopular) return false;
-      if (this.ingredientQuery) {
-        const hasIngredient = r.ingredients?.some((ing: any) =>
-          ing.name.toLowerCase().includes(this.ingredientQuery.toLowerCase())
-        );
-        if (!hasIngredient) return false;
+      if (this.ingredientQuery?.trim()) {
+        const query = this.ingredientQuery.toLowerCase().trim();
+        const hasIngredient = r.ingredients?.some((ing: any) => {
+          const ingredientText = [
+            ing.name,
+            ing.original,
+            ing.originalName,
+            ing.unit,
+            ing.amount,
+            ing.measures?.us?.amount,
+            ing.measures?.metric?.amount,
+          ]
+            .filter(Boolean)
+            .join(' ')
+            .toString()
+            .toLowerCase();
+
+          return ingredientText.includes(query);
+        });
+
+        if (!hasIngredient) {
+          const fallbackText = [r.name, r.description]
+            .filter(Boolean)
+            .join(' ')
+            .toLowerCase();
+          if (!fallbackText.includes(query)) {
+            return false;
+          }
+        }
       }
       return true;
     });
