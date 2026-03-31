@@ -17,7 +17,7 @@
 }
 
 .search-input:focus {
-  border-color: rgba(242, 154, 60, 0.519);
+  border-color: rgba(20, 171, 43, 0.519);
   box-shadow: 0 0 0 3px rgba(242, 109, 60, 0.15);
 }
 
@@ -52,7 +52,7 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .8px;
-  color: #b07a5a;
+  color: rgba(20, 171, 43, 0.519);
   margin-bottom: 4px;
 }
 
@@ -74,7 +74,7 @@
 
 .filter-section input[type="checkbox"],
 .filter-section input[type="radio"] {
-  accent-color: rgb(242, 109, 60);
+  accent-color: rgba(20, 171, 43, 0.519);
   width: 15px;
   height: 15px;
 }
@@ -82,16 +82,16 @@
 .btn-reset {
   font-size: 12px;
   padding: 4px 12px;
-  border: 1px solid rgb(242, 109, 60);
+  border: 1px solid rgba(20, 171, 43, 0.519);
   border-radius: 20px;
   background: white;
-  color: rgb(242, 109, 60);
+  color: rgba(20, 171, 43, 0.519);
   cursor: pointer;
   transition: all .2s;
 }
 
 .btn-reset:hover {
-  background: rgb(242, 109, 60);
+  background: rgba(20, 171, 43, 0.519);
   color: white;
 }
 
@@ -138,7 +138,7 @@
 .badge {
   display: inline-block;
   background: #fdf0e8;
-  color: #993c1d;
+  color: rgba(20, 171, 43, 0.519);
   font-size: 12px;
   padding: 3px 10px;
   border-radius: 20px;
@@ -147,7 +147,7 @@
 .btn-details {
   margin: 0 14px 14px;
   padding: 9px;
-  background: rgb(242, 109, 60);
+  background: rgba(20, 171, 43, 0.519);
   color: white;
   border: none;
   border-radius: 10px;
@@ -159,7 +159,7 @@
 }
 
 .btn-details:hover {
-  background: rgb(210, 80, 25);
+  background: rgba(20, 171, 43, 0.519);
 }
 
 .btn-details:active {
@@ -170,8 +170,8 @@
   margin: 0 14px 8px;
   padding: 8px;
   background: white;
-  color: rgb(242, 109, 60);
-  border: 1px solid rgb(242, 109, 60);
+  color: rgba(20, 171, 43, 0.519);
+  border: 1px solid rgba(20, 171, 43, 0.519);
   border-radius: 10px;
   cursor: pointer;
   font-size: 13px;
@@ -181,6 +181,6 @@
 }
 
 .btn-favorite:hover {
-  background: rgb(242, 109, 60);
+  background: rgba(20, 171, 43, 0.519);
   color: white;
 }
