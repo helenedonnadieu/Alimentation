@@ -1,14 +1,62 @@
-# Alimentation
+**My Recipes — Angular App**
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.3.
+An Angular cooking recipe application powered by the Spoonacular API.
 
-## Development server
+**Features**
 
-To start a local development server, run:
+Real-time recipe search using Observables (valueChanges).
 
-```bash
-ng serve
+Advanced filters: diet, prep time, budget, popularity, and ingredients.
+
+Recipe Cards: image, badges, health score, and price per serving.
+
+Recipe Details: full list of ingredients and preparation steps.
+
+Navigation with Angular Router.
+
+Responsive design powered by Bootstrap 5.
+
+
+| recipe-list | recipe-card | recipe-detail |
+|------------|--------|-----------|
+| ![](screenshots/recipe-list.png) | ![](screenshots/recipe-card.png) | ![](screenshots/recipe-detail.png) | 
+
+**Project structure**
+
 ```
+src/
+├── app/
+│   ├── header/              # Navigation bar
+│   ├── footer/              # Footer
+│   ├── body/                # Main container component
+│   ├── recipe-list/         # Recipe list + filter logic
+│   ├── recipe-card/         # Individual recipe card
+│   ├── recipe-details/      # Full recipe details view
+│   ├── data.ts              # Spoonacular API service
+│   ├── app.routes.ts        # Route configuration
+│   └── app.config.ts        # Angular configuration
+├── styles.css               # Global styles
+└── index.html
+``` 
+**Installation**
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Clone the project:
+git clone https://github.com/helenedonnadieu/alimentation.git
+cd alimentation
 
+Install dependencies :
+npm install
+
+Start the development server :
+ng serve
+
+Open http://localhost:4200 in your browser.
+
+**Spoonacular API**
+Documentation: https://spoonacular.com/food-api
+
+**Authors**
+
+Aminata Yade
+
+Hélène Donnadieu
