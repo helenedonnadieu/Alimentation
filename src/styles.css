@@ -75,13 +75,10 @@ img.flip:hover {
 }
 
 .panel {
-<<<<<<< HEAD
     background: var(--color-panel);
     color: #ffffff;
-=======
     background-color: rgba(41, 100, 36, 0.914);
     color: white;
->>>>>>> e7af05866f01207380666c3c8f3b607dba9b4f07
 }
 
 .titre {
