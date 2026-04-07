@@ -5,22 +5,22 @@
 }
 
 .about-hero {
-  background: linear-gradient(135deg, #fdfaf8 0%, #f5f2f0 100%);
-  border: 1px solid #faf5f2;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, #f5eee8 100%);
+  border: 1px solid #eadfd6;
   border-radius: 16px;
   padding: 22px;
 }
 
 .about-hero .title {
   margin: 0 0 8px;
-  color: rgb(31, 12, 12);
+  color: var(--color-text);
   font-size: 28px;
   font-weight: 700;
 }
 
 .about-hero .subtitle {
   margin: 0;
-  color: #5b3523;
+  color: var(--color-muted);
   line-height: 1.5;
   max-width: 860px;
 }
@@ -33,11 +33,11 @@
 
 .profile-card {
   background: #ffffff;
-  border: 1px solid #ecd8c8;
+  border: 1px solid #eadfd6;
   border-radius: 16px;
   padding: 18px;
   text-align: center;
-  box-shadow: 0 8px 18px rgba(87, 43, 21, 0.06);
+  box-shadow: 0 8px 18px rgba(31, 41, 55, 0.06);
 }
 
 .profile-photo {
@@ -45,7 +45,7 @@
   height: 230px;
   max-width: 100%;
   border-radius: 14px;
-  border: 1px solid #f0dfd1;
+  border: 1px solid #eadfd6;
   object-fit: cover;
   display: block;
   margin: 0 auto;
@@ -57,13 +57,13 @@
 
 .profile-card h3, .profile-card h4 {
   margin: 14px 0 8px;
-  color: #6e2e14;
+  color: var(--color-primary);
   font-size: 20px;
 }
 
 .profile-card p {
   margin: 0;
-  color: #4b2f20;
+  color: var(--color-text);
   line-height: 1.45;
 }
 

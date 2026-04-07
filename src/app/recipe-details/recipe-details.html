@@ -1,10 +1,11 @@
-@if (recipe) {
+@if (recipe(); as currentRecipe) {
   <div class="container padding-25">
 
     <div class="recipe-hero">
-      <img [src]="recipe.img" [alt]="recipe.name">
+      <img [src]="currentRecipe.img" [alt]="currentRecipe.name">
       <div class="recipe-hero-info">
-        <h2 class="titre">{{ recipe.name }}</h2>
+        <h2 class="titre">{{ currentRecipe.name }}</h2>
+        <p class="text-muted mb-0">Étape {{ currentStepIndex() + 1 }} sur {{ stepCount() || 0 }}</p>
       </div>
     </div>
 
@@ -13,23 +14,79 @@
       <div class="col-4">
         <div class="section-card">
           <p class="titre">Ingrédients</p>
-          <p class="text-muted">Pour {{ recipe.servings }} portions</p>
+          <p class="text-muted">Pour {{ currentRecipe.servings }} portions</p>
           <ul class="ingredient-list">
-            <li *ngFor="let ing of ingredients">
-              <span class="ing-amount">{{ ing.amount | number:'1.0-1' }} {{ ing.unit }}</span>
-              <span class="ing-name">{{ ing.name }}</span>
-            </li>
+            @for (ing of ingredients(); track ing.id ?? ing.name) {
+              <li>
+                <span class="ing-amount">{{ ing.amount | number:'1.0-1' }} {{ ing.unit }}</span>
+                <span class="ing-name">{{ ing.name }}</span>
+              </li>
+            }
           </ul>
         </div>
       </div>
 
       <div class="col-8">
         <div class="section-card">
-          <p class="titre">Étapes de préparation</p>
-          <div class="step" *ngFor="let step of steps">
-            <div class="step-number">{{ step.number }}</div>
-            <p class="step-text">{{ step.step }}</p>
+          <div class="step-header">
+            <div>
+              <p class="titre mb-1">Étapes de préparation</p>
+              <p class="text-muted mb-0">Passe de l’une à l’autre avec les boutons ou les pastilles.</p>
+            </div>
+            <div class="step-counter">{{ currentStepIndex() + 1 }}/{{ stepCount() || 0 }}</div>
           </div>
+
+          @if (currentStep(); as step) {
+            <div class="current-step-card">
+              <div class="progress-bar-wrap" aria-hidden="true">
+                <div class="progress-bar-fill" [style.width.%]="progress()"></div>
+              </div>
+
+              <div class="step step--focused">
+                <div class="step-number">{{ step.number }}</div>
+                <p class="step-text">{{ step.step }}</p>
+              </div>
+
+              <div class="step-actions">
+                <button class="btn-step-nav" type="button" (click)="previousStep()" [disabled]="!canGoPrevious()">
+                  Précédent
+                </button>
+                <button class="btn-step-nav btn-step-nav--primary" type="button" (click)="nextStep()" [disabled]="!canGoNext()">
+                  Suivant
+                </button>
+              </div>
+            </div>
+
+            <div class="step-dots" aria-label="Navigation des étapes">
+              @for (dot of steps(); track dot.number; let stepIndex = $index) {
+                <button
+                  type="button"
+                  class="step-dot"
+                  [class.active]="stepIndex === currentStepIndex()"
+                  (click)="selectStep(stepIndex)"
+                  [attr.aria-label]="'Aller à l\'étape ' + dot.number"
+                >
+                  {{ dot.number }}
+                </button>
+              }
+            </div>
+
+            <div class="step-list-preview">
+              @for (stepItem of steps(); track stepItem.number; let stepIndex = $index) {
+                <button
+                  type="button"
+                  class="step-preview"
+                  [class.active]="stepIndex === currentStepIndex()"
+                  (click)="selectStep(stepIndex)"
+                >
+                  <span class="step-preview-number">{{ stepItem.number }}</span>
+                  <span class="step-preview-text">{{ stepItem.step }}</span>
+                </button>
+              }
+            </div>
+          } @else {
+            <p class="text-muted mb-0">Aucune étape n’est disponible pour cette recette.</p>
+          }
         </div>
       </div>
 

@@ -3,12 +3,13 @@
 }
 
 .container {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.88);
   border-radius: 28px;
-  box-shadow: 0 24px 70px rgba(45, 41, 35, 0.08);
+  box-shadow: 0 24px 70px rgba(31, 41, 55, 0.08);
   padding: 32px;
   margin: 24px auto;
   max-width: 1100px;
+  border: 1px solid rgba(231, 218, 207, 0.7);
 }
 
 .recipe-hero {
@@ -30,13 +31,13 @@ img.grows {
 }
 
 .titre {
-  color: #a66f4b;
+  color: var(--color-primary);
   font-size: 2rem;
   margin-bottom: 0.75rem;
 }
 
 .description {
-  color: #4a3527;
+  color: var(--color-muted);
   line-height: 1.85;
   margin-bottom: 1.6rem;
   font-size: 1rem;
@@ -63,8 +64,8 @@ img.grows {
 }
 
 .stat-card {
-  background: #f9f0e8;
-  border: 1px solid #e4d2c0;
+  background: #fff8f3;
+  border: 1px solid #ead7ca;
   border-radius: 20px;
   padding: 18px 16px;
   min-width: 160px;
@@ -90,14 +91,14 @@ img.grows {
 
 .stat-label {
   font-size: 0.85rem;
-  color: #7d5c4a;
+  color: var(--color-muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
 .stat-card strong {
   font-size: 1rem;
-  color: #3f2b20;
+  color: var(--color-text);
 }
 
 .row.padding-10 > .col-3 {
@@ -114,7 +115,7 @@ img.grows {
   display: block;
   margin-top: 0;
   font-size: 1rem;
-  color: #3c2a20;
+  color: var(--color-text);
 }
 
 .badges {
@@ -132,31 +133,32 @@ img.grows {
   border-radius: 999px;
   font-size: 0.85rem;
   font-weight: 700;
-  color: #5d3a20;
+  color: #7d4316;
   background: #fff1e6;
 }
 
 .badge-vegan {
-  background: #e4f4e9;
-  color: #2f6e40;
+  background: #ffe4df;
+  color: #a64036;
 }
 
 .badge-vegetarian {
-  background: #eaf4e4;
-  color: #3f6937;
+  background: #fff0d6;
+  color: #a86615;
 }
 
 .badge-glutenfree,
 .badge-dairyfree {
-  background: #fff4e1;
+  background: #e9efff;
+  color: #3651a3;
 }
 
 .section-card {
   background: #ffffff;
-  border: 1px solid #f1dfd4;
+  border: 1px solid #ebddd3;
   border-radius: 22px;
   padding: 24px;
-  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 16px 28px rgba(31, 41, 55, 0.06);
 }
 
 .ingredient-list {
@@ -178,11 +180,11 @@ img.grows {
 
 .ing-amount {
   font-weight: 700;
-  color: #bc5b2d;
+  color: var(--color-primary);
 }
 
 .ing-name {
-  color: #3f2b20;
+  color: var(--color-text);
 }
 
 .step {
@@ -197,7 +199,7 @@ img.grows {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #f26d3c;
+  background: var(--color-primary);
   color: white;
   display: flex;
   align-items: center;
@@ -207,7 +209,7 @@ img.grows {
 
 .step-text {
   margin: 0;
-  color: #4b382d;
+  color: var(--color-muted);
   line-height: 1.75;
 }
 
@@ -218,9 +220,9 @@ img.grows {
   width: 100%;
   max-width: 260px;
   padding: 14px 20px;
-  background: #d7b59d;
-  color: #4b372c;
-  border: 1px solid rgba(91, 62, 44, 0.18);
+  background: var(--color-primary);
+  color: #ffffff;
+  border: 1px solid rgba(224, 91, 79, 0.18);
   border-radius: 14px;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -230,8 +232,8 @@ img.grows {
 
 .btn-details:hover {
   transform: translateY(-2px);
-  background: #c8a08a;
-  box-shadow: 0 10px 24px rgba(111, 71, 44, 0.18);
+  background: var(--color-primary-strong);
+  box-shadow: 0 10px 24px rgba(224, 91, 79, 0.18);
 }
 
 @media (max-width: 960px) {

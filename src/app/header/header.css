@@ -58,7 +58,7 @@ header .panel .row > .col-8 a {
 }
 
 header .panel .row > .col-8 a:hover {
-  color: #f4f4f4;
+  color: #f1b36d;
 }
 
 .nav-links {
@@ -75,10 +75,10 @@ header .panel .row > .col-8 a:hover {
 }
 
 .nav-links a:hover {
-  color: #ff7043; /* couleur orange-spoonacular */
+  color: #e05b4f;
 }
 
 .active {
-  color: #ff7043;
+  color: #f1b36d;
   font-weight: bold;
 }

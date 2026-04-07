@@ -8,27 +8,28 @@
 .search-input {
   width: 100%;
   padding: 10px 18px;
-  border: 1.5px solid #fcf7f3;
+  border: 1.5px solid var(--color-border);
   border-radius: 25px;
   font-size: 14px;
   outline: none;
-  background: #f5f2f0;
+  background: var(--color-surface);
   transition: border-color .2s, box-shadow .2s;
 }
 
 .search-input:focus {
-  border-color: white;
-  box-shadow: 0 0 0 3px rgba(242, 109, 60, 0.15);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(224, 91, 79, 0.16);
 }
 
 /* Panneau filtres */
 .filter-panel {
-  background: white;
-  border: 0.5px solid #e5d5c8;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--color-border);
   border-radius: 16px;
   padding: 20px;
   position: sticky;
   top: 20px;
+  box-shadow: 0 18px 36px rgba(31, 41, 55, 0.06);
 }
 
 .filter-header {
@@ -39,7 +40,7 @@
 }
 
 .filter-section {
-  border-top: 0.5px solid #f0e4da;
+  border-top: 1px solid #f0e4da;
   padding-top: 12px;
   margin-top: 12px;
   display: flex;
@@ -52,7 +53,7 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .8px;
-  color: rgba(20, 171, 43, 0.519);
+  color: var(--color-primary);
   margin-bottom: 4px;
 }
 
@@ -74,7 +75,7 @@
 
 .filter-section input[type="checkbox"],
 .filter-section input[type="radio"] {
-  accent-color: rgba(20, 171, 43, 0.519);
+  accent-color: var(--color-primary);
   width: 15px;
   height: 15px;
 }
@@ -82,16 +83,16 @@
 .btn-reset {
   font-size: 12px;
   padding: 4px 12px;
-  border: 1px solid rgba(20, 171, 43, 0.519);
+  border: 1px solid var(--color-primary);
   border-radius: 20px;
   background: white;
-  color: rgba(20, 171, 43, 0.519);
+  color: var(--color-primary);
   cursor: pointer;
   transition: all .2s;
 }
 
 .btn-reset:hover {
-  background: rgba(20, 171, 43, 0.519);
+  background: var(--color-primary);
   color: white;
 }
 
@@ -103,10 +104,10 @@
 }
 
 .recipe-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 14px;
   overflow: hidden;
-  border: 0.5px solid #e5d5c8;
+  border: 1px solid var(--color-border);
   transition: transform .25s ease, box-shadow .25s ease;
   display: flex;
   flex-direction: column;
@@ -114,7 +115,7 @@
 
 .recipe-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 28px rgba(242, 109, 60, 0.12);
+  box-shadow: 0 16px 36px rgba(31, 41, 55, 0.12);
 }
 
 .recipe-card img {
@@ -131,14 +132,14 @@
 .card-content h3 {
   font-size: 15px;
   font-weight: 500;
-  color: #2d1a0e;
+  color: var(--color-text);
   margin-bottom: 8px;
 }
 
 .badge {
   display: inline-block;
-  background: #fdf0e8;
-  color: rgba(20, 171, 43, 0.519);
+  background: #fff1e7;
+  color: var(--color-primary-strong);
   font-size: 12px;
   padding: 3px 10px;
   border-radius: 20px;
@@ -147,7 +148,7 @@
 .btn-details {
   margin: 0 14px 14px;
   padding: 9px;
-  background: rgba(20, 171, 43, 0.519);
+  background: var(--color-primary);
   color: white;
   border: none;
   border-radius: 10px;
@@ -159,7 +160,7 @@
 }
 
 .btn-details:hover {
-  background: rgba(20, 171, 43, 0.519);
+  background: var(--color-primary-strong);
 }
 
 .btn-details:active {
@@ -175,8 +176,8 @@
   align-items: center;
   justify-content: center;
   background: #ffffff;
-  color: #c45d5d;
-  border: 1px solid #d8b19d;
+  color: var(--color-primary-strong);
+  border: 1px solid #d9c2b4;
   border-radius: 50%;
   cursor: pointer;
   font-size: 20px;
@@ -186,11 +187,11 @@
 
 .btn-favorite:hover {
   transform: scale(1.05);
-  background: #f6e8e5;
+  background: #f8e9e6;
 }
 
 .btn-favorite.active {
-  background: #d7b59d;
-  color: #611f1f;
-  border-color: #c49a86;
+  background: #f4d4cf;
+  color: #7f2d27;
+  border-color: #e6b6ae;
 }
